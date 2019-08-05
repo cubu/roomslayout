@@ -208,36 +208,39 @@
   <div id="roomTools" class="leftBox">
     <span style="color:#08d">Home Rough Editor</span> estimated a surface of :<br/><b><span class="size"></span></b>
     <br/><br/>
-    <p>If you have the actual area, you can write it</p>
+    <p>Nếu bạn có diện tích chính xác của căn phòng này, hãy điền vào đây:</p>
     <div class="input-group">
     <input type="text" class="form-control" id="roomSurface"  placeholder="surface réelle" aria-describedby="basic-addon2">
     <span class="input-group-addon" id="basic-addon2">m²</span>
     </div>
     <br/>
     <input type="hidden" id="roomName" value="" />
-    Wording :<br/>
+    Loại phòng :<br/>
     <div class="btn-group">
-        <button class="btn dropdown-toggle btn-default" data-toggle="dropdown" id="roomLabel">Wording of the room   <span class="caret"></span></button>
+        <button class="btn dropdown-toggle btn-default" data-toggle="dropdown" id="roomLabel">Tên của loại phòng   <span class="caret"></span></button>
     <ul class="dropdown-menu">
       <li><a href="#">None</a></li>
-      <li><a href="#">Lounge</a></li>
-      <li><a href="#">Lunchroom</a></li>
-      <li><a href="#">Kitchen</a></li>
-      <li><a href="#">Toilet</a></li>
-      <li><a href="#">Bathroom</a></li>
-      <li><a href="#">Bedroom 1</a></li>
-      <li><a href="#">Bedroom 2</a></li>
-      <li><a href="#">Bedroom 3</a></li>
+      <li><a href="#">Phòng sinh hoạt chung</a></li>
+      <li><a href="#">Phòng ăn</a></li>
+      <li><a href="#">Phòng bếp</a></li>
+      <li><a href="#">Nhà vệ sinh</a></li>
+      <li><a href="#">Phòng tắm 1</a></li>
+      <li><a href="#">Phòng tắm 2</a></li>
+      <li><a href="#">Phòng tắm 3</a></li>
+      <li><a href="#">Phòng tắm 4</a></li>
+      <li><a href="#">Phòng ngủ 1</a></li>
+      <li><a href="#">Phòng ngủ 2</a></li>
+      <li><a href="#">Phòng ngủ 3</a></li>
+      <li><a href="#">Phòng ngủ 4</a></li>
+      <li><a href="#">Phòng ngủ 5</a></li>
       <li><a href="#">Locker</a></li>
-      <li><a href="#">Office</a></li>
-      <li><a href="#">Hall</a></li>
+      <li><a href="#">Phòng làm việc</a></li>
+      <li><a href="#">Sảnh</a></li>
       <li><a href="#">Loggia</a></li>
-      <li><a href="#">Bath 2</a></li>
-      <li><a href="#">Toilet 2</a></li>
-      <li><a href="#">Bedroom 4</a></li>
-      <li><a href="#">Bedroom 5</a></li>
+      
+      <li><a href="#">Nhà vệ sinh</a></li>      
       <li class="divider"></li>
-      <li><a href="#">Balcony</a></li>
+      <li><a href="#">Ban công</a></li>
       <li><a href="#">Terrace</a></li>
       <li><a href="#">Corridor</a></li>
       <li><a href="#">Garage</a></li>
@@ -265,7 +268,7 @@
     </div>
     <hr/>
 
-    <p>Colors</p>
+    <p>Màu</p>
     <div class="roomColor" data-type="gradientRed" style="background:linear-gradient(30deg, #f55847, #f00);"></div>
     <div class="roomColor" data-type="gradientYellow" style="background:linear-gradient(30deg,#e4c06e, #ffb000);"></div>
     <div class="roomColor" data-type="gradientGreen" style="background:linear-gradient(30deg,#88cc6c, #60c437);"></div>
@@ -279,7 +282,7 @@
     <div class="roomColor" data-type="gradientBlack" style="background:linear-gradient(30deg,#3c3b3b, #000000);"></div>
     <div class="roomColor" data-type="gradientNeutral" style="background:linear-gradient(30deg,#e2c695, #c69d56);"></div>
     <br/><br/>
-    <p>Matérials</p>
+    <p>Vật liệu</p>
     <div class="roomColor" data-type="wood" style="background: url('https://orig00.deviantart.net/e1f2/f/2015/164/8/b/old_oak_planks___seamless_texture_by_rls0812-d8x6htl.jpg');"></div>
     <div class="roomColor" data-type="tiles" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrkoI2Eiw8ya3J_swhfpZdi_ug2sONsI6TxEd1xN5af3DX9J3R');"></div>
     <div class="roomColor" data-type="granite" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9_nEMhnWVV47lxEn5T_HWxvFwkujFTuw6Ff26dRTl4rDaE8AdEQ');"></div>
@@ -303,8 +306,8 @@
         <li><button class="btn btn-success fully " id="select_mode" style="box-shadow:2px 2px 3px #ccc;"><i class="fa fa-2x fa-mouse-pointer" aria-hidden="true"></i></button></li>
         <br/>
         <li>
-        <button class="btn btn-default fully " style="margin-bottom:0px" id="line_mode" data-toggle="tooltip" data-placement="right" title="Make walls">WALL</button>
-        <button class="btn btn-default fully " style="margin-bottom:0px" id="partition_mode" data-toggle="tooltip" data-placement="right" title="Make partitions wall">PARTITION</button>
+        <button class="btn btn-default fully " style="margin-bottom:0px" id="line_mode" data-toggle="tooltip" data-placement="right" title="Make walls">TƯỜNG</button>
+        <button class="btn btn-default fully " style="margin-bottom:0px" id="partition_mode" data-toggle="tooltip" data-placement="right" title="Make partitions wall">VÁCH NGĂN</button>
         <div class="funkyradio"  style="font-size:0.8em">
           <div class="funkyradio-success">
             <input type="checkbox" id="multi" checked/>
@@ -313,7 +316,7 @@
         </div>
         </li>
         <br/>
-        <li><button class="btn btn-default fully " id="room_mode">CONFIG. ROOMS</button></li>
+        <li><button class="btn btn-default fully " id="room_mode">Cấu hình phòng</button></li>
         <br/>
         <li><button class="btn btn-default fully " id="node_mode"><i class="fa fa-2x fa-scissors" aria-hidden="true"></i></button></li>
         <br/>
@@ -322,58 +325,58 @@
         <br/>
         <div id="door_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#fff;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;width:150px">
           <button class="btn fully door" id="aperture">Aperture</button>
-          <button class="btn fully door" id="simple">Simple</button>
-          <button class="btn fully door" id="double">Double</button>
+          <button class="btn fully door" id="simple">Cửa đi một cánh</button>
+          <button class="btn fully door" id="double">Cửa đi hai cánh</button>
           <button class="btn fully door" id="pocket">Pocket</button>
         </div>
-        <li><button class="btn btn-default fully " id="door_mode" onclick="$('.sub').hide();$('#door_list').toggle(200);$('#window_list').hide();">DOOR</button></li>
+        <li><button class="btn btn-default fully " id="door_mode" onclick="$('.sub').hide();$('#door_list').toggle(200);$('#window_list').hide();">CỬA RA VÀO</button></li>
 
         <div id="window_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#fff;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;width:150px">
-          <button class="btn fully window" id="fix">Fix</button>
-          <button class="btn fully window" id="flap">Simple</button>
-          <button class="btn fully window" id="twin">Double</button>
-          <button class="btn fully window" id="bay">Slide</button>
+          <button class="btn fully window" id="fix">Cố định</button>
+          <button class="btn fully window" id="flap">Cửa đơn</button>
+          <button class="btn fully window" id="twin">Cửa đôi</button>
+          <button class="btn fully window" id="bay">Cửa trượt</button>
         </div>
-        <li><button class="btn btn-default fully " id="window_mode" onclick="$('.sub').hide();$('#window_list').toggle(200);$('#door_list').hide()">WINDOW</button></li>
-        <li><button class="btn btn-default fully object" id="stair_mode" onclick="$('.sub').hide();$('#door_list').hide()">STAIR</button></li>
+        <li><button class="btn btn-default fully " id="window_mode" onclick="$('.sub').hide();$('#window_list').toggle(200);$('#door_list').hide()">CỬA SỔ</button></li>
+        <li><button class="btn btn-default fully object" id="stair_mode" onclick="$('.sub').hide();$('#door_list').hide()">CẦU THANG</button></li>
         <br/>
         <div id="energy_list"  class="list-unstyled sub" style="box-shadow:2px 2px 3px #ccc;display:none;background:#fff;border-radius: 0 5px 5px 0; padding:10px;position:absolute;left:200px;bottom:40px;width:600px">
           <div style="width:600px;float:left;padding:10px">
-          <p>Energy</p>
+          <p>Thiết bị điện</p>
           <div style="float:left;padding:10px;margin:5px;border:1px solid #ddd;border-radius:5px">
-            <p>Courant fort</p>
+            <p>Các thiết bị điện chính</p>
             <div style="width:120px;float:left;padding:2px">
               <button class="btn fully object" id="gtl">GTL</button>
-              <button class="btn fully object" id="switch">Interrupteur</button>
-              <button class="btn fully object" id="doubleSwitch">Va-et-vient</button>
-              <button class="btn fully object" id="dimmer">Variateur</button>
+              <button class="btn fully object" id="switch">Công tắc</button>
+              <button class="btn fully object" id="doubleSwitch">Công tắc 2 chiều</button>
+              <button class="btn fully object" id="dimmer">Biến áp</button>
 
             </div>
             <div style="width:120px;float:left;padding:2px">
-              <button class="btn fully object" id="plug">Prise élec.</button>
-              <button class="btn fully object" id="plug20">Prise 20A</button>
-              <button class="btn fully object" id="plug32">Prise 32A</button>
-              <button class="btn fully object" id="roofLight">Lum. plafond</button>
-              <button class="btn fully object" id="wallLight">Lum. applique</button>
+              <button class="btn fully object" id="plug">Ổ cắm</button>
+              <button class="btn fully object" id="plug20">Ổ cắm 20A</button>
+              <button class="btn fully object" id="plug32">Ổ cắm 32A</button>
+              <button class="btn fully object" id="roofLight">Đèn trần</button>
+              <button class="btn fully object" id="wallLight">Đèn tường</button>
           </div>
           </div>
           <div style="width:130px;float:left;padding:10px;margin:5px;border:1px solid #ddd;border-radius:5px">
-            <p>Courant faible</p>
-            <button class="btn fully object" id="www">Accès Internet</button>
-            <button class="btn fully object" id="rj45">Prise RJ45</button>
-            <button class="btn fully object" id="tv">Prise Antenne</button>
+            <p>Thiết bị ngoại vi</p>
+            <button class="btn fully object" id="www">Ổ cắm Internet</button>
+            <button class="btn fully object" id="rj45">Ổ cắm RJ45</button>
+            <button class="btn fully object" id="tv">Ổ cắm Anten TV</button>
           </div>
 
           <div style="width:130px;float:left;padding:10px;margin:5px;border:1px solid #ddd;border-radius:5px">
-            <p>Thermique</p>
-            <button class="btn fully object" id="boiler">Chaudière</button>
-            <button class="btn fully object" id="heater">Chauffe-eau</button>
-            <button class="btn fully object" id="radiator">Radiateur</button>
+            <p>Thiết bị nhiệt</p>
+            <button class="btn fully object" id="boiler">Máy đun nước</button>
+            <button class="btn fully object" id="heater">Bình nóng lạnh</button>
+            <button class="btn fully object" id="radiator">Lò sưởi</button>
           </div>
           </div>
 
       </div>
-      <li><button class="btn btn-default fully " id="object_mode" onclick="$('.sub').hide();$('#energy_list').toggle(200);">ENERGY</button></li>
+      <li><button class="btn btn-default fully " id="object_mode" onclick="$('.sub').hide();$('#energy_list').toggle(200);">THIẾT BỊ ĐIỆN</button></li>
       <!-- <li><button class="btn btn-default fully " id="object_mode" onclick="$('.sub').hide();$('#object_list').toggle(200);">FURNITURE</button></li> -->
       <br/>
 
@@ -401,7 +404,7 @@
       <div class="funkyradio" style="font-size:0.8em">
         <div class="funkyradio-info">
           <input type="checkbox" id="showLayerEnergy" checked/>
-          <label for="showLayerEnergy">Energy</label>
+          <label for="showLayerEnergy">Thiết bị điện</label>
         </div>
       </div>
     </div>
@@ -424,10 +427,10 @@
         </div>
         <div class="modal-body">
           <div id="recover">
-            <p>A plan exists into historic, would you like recover him ?</p>
-            <button class="btn btn-default" onclick="initHistory('recovery');$('#myModal').modal('toggle')">OUI</button></p>
+            <p>Một bản thiết kế vẫn đang lưu trên máy bạn, bạn có muốn tiếp tục không?</p>
+            <button class="btn btn-default" onclick="initHistory('recovery');$('#myModal').modal('toggle')">CÓ</button></p>
             <hr/>
-            <p>Or are you prefer start a new plan ?</p>
+            <p>Hoặc bạn muốn tạo mộc bản thiết kế mới?</p>
           </div>
           <div class="row">
             <div class="col-md-3 col-xs-3 boxMouseOver" style="min-height:140px;margin:15px;background:url('newPlanEmpty.jpg')"><img src="newPlanEmpty.jpg" class="img-responsive" onclick="initHistory();$('#myModal').modal('toggle')"/></div>

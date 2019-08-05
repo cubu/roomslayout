@@ -163,9 +163,9 @@ document.getElementById('report_mode').addEventListener("click", function() {
   mode = "report_mode";
   $('#panel').hide();
   $('#reportTools').show(200, function() {
-    document.getElementById('reportTotalSurface').innerHTML = "Total de la surface : <b>"+(globalArea/3600).toFixed(1)+ "</b> m²";
+    document.getElementById('reportTotalSurface').innerHTML = "Tổng diện tích mặt bằng : <b>"+(globalArea/3600).toFixed(1)+ "</b> m²";
     $('#reportTotalSurface').show(1000);
-    document.getElementById('reportNumberSurface').innerHTML = "Nombre pièces : <b>"+ROOM.length+ "</b>";
+    document.getElementById('reportNumberSurface').innerHTML = "Tổng số phòng : <b>"+ROOM.length+ "</b>";
     $('#reportNumberSurface').show(1000);
     var number = 1;
     var reportRoom = '<div class="row">\n';
@@ -173,7 +173,7 @@ document.getElementById('report_mode').addEventListener("click", function() {
       var nameRoom = "Pièce n°"+number+" <small>(sans nom)</small>";
       if (ROOM[k].name != "") nameRoom = ROOM[k].name;
       reportRoom+= '<div class="col-md-6"><p>'+nameRoom+'</p></div>\n';
-      reportRoom+= '<div class="col-md-6"><p>Surface : <b>'+((ROOM[k].area)/3600).toFixed(2)+'</b> m²</p></div>\n';
+      reportRoom+= '<div class="col-md-6"><p>Diện tích : <b>'+((ROOM[k].area)/3600).toFixed(2)+'</b> m²</p></div>\n';
       number++;
     }
     reportRoom+='</div><hr/>\n';
@@ -188,19 +188,19 @@ document.getElementById('report_mode').addEventListener("click", function() {
         if (OBJDATA[k].type == 'wallLight' || OBJDATA[k].type == 'roofLight') lampNumber++;
       }
     }
-    reportRoom+='<p>Nombre d\'interrupteur(s) : '+switchNumber+'</p>';
-    reportRoom+='<p>Nombre de prise(s) secteur : '+plugNumber+'</p>';
-    reportRoom+='<p>Nombre de point(s) de lumière : '+lampNumber+'</p>';
+    reportRoom+='<p>Số lượng công tắc : '+switchNumber+'</p>';
+    reportRoom+='<p>Số lượng ổ cắm : '+plugNumber+'</p>';
+    reportRoom+='<p>Số lượng đèn : '+lampNumber+'</p>';
     reportRoom+='</div>';
     reportRoom+='<div>\n';
-    reportRoom+='<h2>Répartition énergie par pièce</h2>\n';
+    reportRoom+='<h2>Công suất năng lượng mỗi phòng</h2>\n';
     var number = 1;
     reportRoom+= '<div class="row">\n';
-    reportRoom+= '<div class="col-md-4"><p>Libellé</p></div>\n';
+    reportRoom+= '<div class="col-md-4"><p>Phòng</p></div>\n';
     reportRoom+= '<div class="col-md-2"><small>Int.</small></div>\n';
     reportRoom+= '<div class="col-md-2"><small>Pri. sec.</small></div>\n';
-    reportRoom+= '<div class="col-md-2"><small>Pt lum.</small></div>\n';
-    reportRoom+= '<div class="col-md-2"><small>Watts Max</small></div>\n';
+    reportRoom+= '<div class="col-md-2"><small>Đèn</small></div>\n';
+    reportRoom+= '<div class="col-md-2"><small>CS tối đa</small></div>\n';
     reportRoom+='</div>';
 
     var roomEnergy = [];
@@ -251,7 +251,7 @@ document.getElementById('report_mode').addEventListener("click", function() {
       number++;
       reportRoom+='</div>';
     }
-    reportRoom+='<hr/><h2>Détails Norme NF C 15-100</h2>\n';
+    reportRoom+='<hr/><h2>Chi tiết theo Tiêu chuẩn NF C 15-100</h2>\n';
     var number = 1;
 
     for (var k in ROOM) {
@@ -324,7 +324,7 @@ document.getElementById('report_mode').addEventListener("click", function() {
     }
 
     document.getElementById('reportRooms').innerHTML = reportRoom;
-    $('#reportRooms').show(1000);
+    $('#reportRooms').show(2000);
   });
 
 
@@ -1335,7 +1335,7 @@ $('#distance_mode').click(function() {
 
 $('#room_mode').click(function() {
     $('#lin').css('cursor', 'pointer');
-    $('#boxinfo').html('Config. of rooms');
+    $('#boxinfo').html('Cấu hình phòng');
     fonc_button('room_mode');
 });
 
@@ -1414,7 +1414,7 @@ $('#text_mode').click(function() {
 $('#grid_mode').click(function() {
     if (grid_snap == 'on') {
         grid_snap = 'off';
-        $('#boxinfo').html('Grille d\'aide off');
+        $('#boxinfo').html('Tắt chế độ Grid');
         $('#grid_mode').removeClass('btn-success');
         $('#grid_mode').addClass('btn-warning');
         $('#grid_mode').html('GRID OFF');
