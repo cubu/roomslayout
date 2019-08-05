@@ -257,64 +257,64 @@ document.getElementById('report_mode').addEventListener("click", function() {
     for (var k in ROOM) {
       reportRoom+= '<div class="row">\n';
       var nfc = true;
-      var nameRoom = "Pièce n°"+number+" <small>(sans nom)</small>";
+      var nameRoom = "Phòng số "+number+" <small>(không tên)</small>";
       if (ROOM[k].name != "") nameRoom = ROOM[k].name;
       reportRoom+= '<div class="col-md-4"><p>'+nameRoom+'</p></div>\n';
       if (ROOM[k].name == "") {
-        reportRoom+= '<div class="col-md-8"><p><i class="fa fa-ban" aria-hidden="true" style="color:red"></i> La pièce n\'ayant pas de libellé, Home Rough Editor ne peut vous fournir d\'informations.</p></div>\n';
+        reportRoom+= '<div class="col-md-8"><p><i class="fa fa-ban" aria-hidden="true" style="color:red"></i> Phòng này không có tên, Home Rough Editor không thể cung cấp cho bạn thông tin.</p></div>\n';
       }
       else {
         if (ROOM[k].name == "Salon") {
           for (var g in ROOM) {
-            if (ROOM[g].name == "Salle à manger") {
+            if (ROOM[g].name == "Phòng ăn") {
               roomEnergy[k].light+=roomEnergy[g].light;
               roomEnergy[k].plug+=roomEnergy[g].plug;
               roomEnergy[k].switch+=roomEnergy[g].switch;
             }
           }
           reportRoom+= '<div class="col-md-8">';
-          if (roomEnergy[k].light == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất <b>1 bóng đèn</b> <small>(actuellement '+roomEnergy[k].light+')</small>.</p>\n';nfc=false;}
-          if (roomEnergy[k].plug < 5) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất <b>5 ổ cắm điện</b> <small>(actuellement '+roomEnergy[k].plug+')</small>.</p>\n';nfc=false;}
+          if (roomEnergy[k].light == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất <b>1 bóng đèn</b> <small>(hiện tại '+roomEnergy[k].light+')</small>.</p>\n';nfc=false;}
+          if (roomEnergy[k].plug < 5) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất <b>5 ổ cắm điện</b> <small>(hiện tại '+roomEnergy[k].plug+')</small>.</p>\n';nfc=false;}
           if (nfc) reportRoom+='<i class="fa fa-check" aria-hidden="true" style="color:green"></i>';
           reportRoom+= '</div>';
         }
-        if (ROOM[k].name == "Salle à manger") {
+        if (ROOM[k].name == "Phòng ăn") {
           reportRoom+= '<div class="col-md-8"><p><i class="fa fa-info" aria-hidden="true" style="color:blue"></i> Phòng này có liên quan đến <b>salon / phòng khách</b> theo tiêu chuẩn.</p></div>\n';
         }
         if (ROOM[k].name.substr(0,7) == "Chambre") {
           reportRoom+= '<div class="col-md-8">';
-          if (roomEnergy[k].light == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất <b>1 point lumineux commandé</b> <small>(actuellement '+roomEnergy[k].light+')</small>.</p>\n';nfc=false;}
-          if (roomEnergy[k].plug < 3) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất  <b>3 prises de courant</b> <small>(actuellement '+roomEnergy[k].plug+')</small>.</p>\n';nfc=false;}
+          if (roomEnergy[k].light == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất <b>1 nguồn sáng</b> <small>(hiện tại '+roomEnergy[k].light+')</small>.</p>\n';nfc=false;}
+          if (roomEnergy[k].plug < 3) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất <b>3 ổ cắm điện</b> <small>(hiện tại '+roomEnergy[k].plug+')</small>.</p>\n';nfc=false;}
           if (nfc) reportRoom+='<i class="fa fa-check" aria-hidden="true" style="color:green"></i>';
           reportRoom+= '</div>';
         }
         if (ROOM[k].name == "SdB") {
           reportRoom+= '<div class="col-md-8">';
-          if (roomEnergy[k].light == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Cette pièce doit disposer d\'au moins <b>1 point lumineux</b> <small>(actuellement '+roomEnergy[k].light+')</small>.</p>\n';nfc=false;}
-          if (roomEnergy[k].plug < 2) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Cette pièce doit disposer d\'au moins <b>2 prises de courant</b> <small>(actuellement '+roomEnergy[k].plug+')</small>.</p>\n';nfc=false;}
-          if (roomEnergy[k].switch == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Cette pièce doit disposer d\'au moins <b>1 interrupteur</b> <small>(actuellement '+roomEnergy[k].switch+')</small>.</p>\n';nfc=false;}
+          if (roomEnergy[k].light == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất <b>1 điểm sáng</b> <small>(hiện tại '+roomEnergy[k].light+')</small>.</p>\n';nfc=false;}
+          if (roomEnergy[k].plug < 2) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất  <b>2 ổ cắm điện</b> <small>(hiện tại '+roomEnergy[k].plug+')</small>.</p>\n';nfc=false;}
+          if (roomEnergy[k].switch == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất <b>1 công tắc</b> <small>(hiện tại '+roomEnergy[k].switch+')</small>.</p>\n';nfc=false;}
           if (nfc) reportRoom+='<i class="fa fa-check" aria-hidden="true" style="color:green"></i>';
           reportRoom+= '</div>';
         }
         if (ROOM[k].name == "Couloir") {
           reportRoom+= '<div class="col-md-8">';
-          if (roomEnergy[k].light == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Cette pièce doit disposer d\'au moins <b>1 point lumineux commandé</b> <small>(actuellement '+roomEnergy[k].light+')</small>.</p>\n';nfc=false;}
-          if (roomEnergy[k].plug < 1) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Cette pièce doit disposer d\'au moins <b>1 prise de courant</b> <small>(actuellement '+roomEnergy[k].plug+')</small>.</p>\n';nfc=false;}
+          if (roomEnergy[k].light == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất <b>1 nguồn sáng</b> <small>(hiện tại '+roomEnergy[k].light+')</small>.</p>\n';nfc=false;}
+          if (roomEnergy[k].plug < 1) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất <b>1 prise de courant</b> <small>(hiện tại '+roomEnergy[k].plug+')</small>.</p>\n';nfc=false;}
           if (nfc) reportRoom+='<i class="fa fa-check" aria-hidden="true" style="color:green"></i>';
           reportRoom+= '</div>';
         }
         if (ROOM[k].name == "Toilette") {
           reportRoom+= '<div class="col-md-8">';
-          if (roomEnergy[k].light == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Cette pièce doit disposer d\'au moins <b>1 point lumineux</b>. <small>(actuellement '+roomEnergy[k].light+')</small>.</p>\n';nfc=false;}
+          if (roomEnergy[k].light == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất <b>1 nguồn sáng</b>. <small>(hiện tại '+roomEnergy[k].light+')</small>.</p>\n';nfc=false;}
           if (nfc) reportRoom+='<i class="fa fa-check" aria-hidden="true" style="color:green"></i>';
           reportRoom+= '</div>';
         }
         if (ROOM[k].name == "Cuisine") {
           reportRoom+= '<div class="col-md-8">';
-          if (roomEnergy[k].light == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Cette pièce doit disposer d\'au moins <b>1 point lumineux commandé</b> <small>(actuellement '+roomEnergy[k].light+')</small>.</p>\n';nfc=false;}
-          if (roomEnergy[k].plug < 6) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Cette pièce doit disposer d\'au moins <b>6 prise de courant</b> <small>(actuellement '+roomEnergy[k].plug+')</small>.</p>\n';nfc=false;}
-          if (roomEnergy[k].plug32 == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Cette pièce doit disposer d\'au moins <b>1 prise de courant 32A</b> <small>(actuellement '+roomEnergy[k].plug32+')</small>.</p>\n';nfc=false;}
-          if (roomEnergy[k].plug20 < 2) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Cette pièce doit disposer d\'au moins <b>2 prise de courant 20A</b> <small>(actuellement '+roomEnergy[k].plug20+')</small>.</p>\n';nfc=false;}
+          if (roomEnergy[k].light == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất <b>1 nguồn sáng </b> <small>(hiện tại '+roomEnergy[k].light+')</small>.</p>\n';nfc=false;}
+          if (roomEnergy[k].plug < 6) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất <b>6 ổ cắm điện</b> <small>(hiện tại '+roomEnergy[k].plug+')</small>.</p>\n';nfc=false;}
+          if (roomEnergy[k].plug32 == 0) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất <b>1 ổ cắm điện 32A</b> <small>(hiện tại '+roomEnergy[k].plug32+')</small>.</p>\n';nfc=false;}
+          if (roomEnergy[k].plug20 < 2) {reportRoom+= '<p><i class="fa fa-exclamation-triangle" style="color:orange" aria-hidden="true"></i> Phòng này phải có ít nhất <b>2 ổ cắm điện 20A</b> <small>(hiện tại '+roomEnergy[k].plug20+')</small>.</p>\n';nfc=false;}
           if (nfc) reportRoom+='<i class="fa fa-check" aria-hidden="true" style="color:green"></i>';
           reportRoom+= '</div>';
         }
