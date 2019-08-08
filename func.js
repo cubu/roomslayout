@@ -163,9 +163,9 @@ document.getElementById('report_mode').addEventListener("click", function() {
   mode = "report_mode";
   $('#panel').hide();
   $('#reportTools').show(200, function() {
-    document.getElementById('reportTotalSurface').innerHTML = "Tổng diện tích mặt bằng : <b>"+(globalArea/3600).toFixed(1)+ "</b> m²";
+    document.getElementById('reportTotalSurface').innerHTML = lang_total_surface + (globalArea/3600).toFixed(1)+ "</b> m²";
     $('#reportTotalSurface').show(1000);
-    document.getElementById('reportNumberSurface').innerHTML = "Tổng số phòng : <b>"+ROOM.length+ "</b>";
+    document.getElementById('reportNumberSurface').innerHTML = lang_total_rooms + ROOM.length+ "</b>";
     $('#reportNumberSurface').show(1000);
     var number = 1;
     var reportRoom = '<div class="row">\n';
@@ -188,9 +188,9 @@ document.getElementById('report_mode').addEventListener("click", function() {
         if (OBJDATA[k].type == 'wallLight' || OBJDATA[k].type == 'roofLight') lampNumber++;
       }
     }
-    reportRoom+='<p>Số lượng công tắc : '+switchNumber+'</p>';
-    reportRoom+='<p>Số lượng ổ cắm : '+plugNumber+'</p>';
-    reportRoom+='<p>Số lượng đèn : '+lampNumber+'</p>';
+    reportRoom+='<p>' + lang_num_of_swiches + ' : ' + switchNumber+'</p>';
+    reportRoom+='<p>' + lang_num_of_sockets + ' : ' + plugNumber+'</p>';
+    reportRoom+='<p>' + lang_num_of_lights  + ' : ' + lampNumber+'</p>';
     reportRoom+='</div>';
     reportRoom+='<div>\n';
     reportRoom+='<h2>Công suất năng lượng mỗi phòng</h2>\n';
@@ -516,7 +516,7 @@ function throttle(callback, delay) {
         var now = +new Date();
         var args = arguments;
         if (last && now < last + delay) {
-            // le délai n'est pas écoulé on reset le timer
+            // the delay is not over, we reset the timer (le délai n'est pas écoulé on reset le timer)
             clearTimeout(timer);
             timer = setTimeout(function () {
                 last = now;
@@ -578,14 +578,14 @@ document.getElementById("showLayerEnergy").addEventListener("click", function ()
   }
 });
 
-// document.getElementById("showLayerFurniture").addEventListener("click", function () {
-//   if (document.getElementById("showLayerFurniture").checked) {
-//     $('#boxFurniture').show(200);
-//   }
-//   else {
-//     $('#boxFurniture').hide(100);
-//   }
-// });
+document.getElementById("showLayerFurniture").addEventListener("click", function () {
+  if (document.getElementById("showLayerFurniture").checked) {
+    $('#boxFurniture').show(200);
+  }
+  else {
+    $('#boxFurniture').hide(100);
+  }
+});
 
 document.getElementById("applySurface").addEventListener("click", function () {
       $('#roomTools').hide(100);
@@ -1329,18 +1329,18 @@ function fonc_button(modesetting ,option) {
 
 $('#distance_mode').click(function() {
   $('#lin').css('cursor', 'crosshair');
-  $('#boxinfo').html('Add a measurement');
+  $('#boxinfo').html(distance_mode_boxinfo);
   fonc_button('distance_mode');
 });
 
 $('#room_mode').click(function() {
     $('#lin').css('cursor', 'pointer');
-    $('#boxinfo').html('Cấu hình phòng');
+    $('#boxinfo').html(room_mode_boxinfo);
     fonc_button('room_mode');
 });
 
 $('#select_mode').click(function() {
-  $('#boxinfo').html('Mode "select"');
+  $('#boxinfo').html(select_mode_boxinfo);
   if (typeof(binder) != 'undefined') {
       binder.remove();
       delete binder;
@@ -1351,7 +1351,7 @@ $('#select_mode').click(function() {
 
 $('#line_mode').click(function() {
     $('#lin').css('cursor', 'crosshair');
-    $('#boxinfo').html('Création de mur(s)');
+    $('#boxinfo').html(line_mode_boxinfo);
     multi = 0;
     action = 0;
     // snap = calcul_snap(event, grid_snap);
@@ -1363,27 +1363,27 @@ $('#line_mode').click(function() {
 
 $('#partition_mode').click(function() {
     $('#lin').css('cursor', 'crosshair');
-    $('#boxinfo').html('Création de cloison(s)');
+    $('#boxinfo').html(partition_mode_boxinfo);
     multi = 0;
     fonc_button('partition_mode');
 });
 
 $('#rect_mode').click(function() {
     $('#lin').css('cursor', 'crosshair');
-    $('#boxinfo').html('Création de pièce(s)');
+    $('#boxinfo').html(rect_mode_boxinfo);
     fonc_button('rect_mode');
 });
 
 $('.door').click(function() {
     $('#lin').css('cursor', 'crosshair');
-    $('#boxinfo').html('Ajouter une porte');
+    $('#boxinfo').html(door_boxinfo);
     $('#door_list').hide(200);
     fonc_button('door_mode', this.id);
 });
 
 $('.window').click(function() {
     $('#lin').css('cursor', 'crosshair');
-    $('#boxinfo').html('Ajouter une fenêtre');
+    $('#boxinfo').html(window_boxinfo);
     $('#door_list').hide(200);
     $('#window_list').hide(200);
     fonc_button('door_mode', this.id);
@@ -1391,37 +1391,37 @@ $('.window').click(function() {
 
 $('.object').click(function() {
     cursor('move');
-    $('#boxinfo').html('Ajouter un objet');
+    $('#boxinfo').html(object_boxinfo);
     fonc_button('object_mode', this.id);
 });
 
 $('#stair_mode').click(function() {
     cursor('move');
-    $('#boxinfo').html('Ajouter un escalier');
+    $('#boxinfo').html(stair_mode_boxinfo);
     fonc_button('object_mode', 'simpleStair');
 });
 
 $('#node_mode').click(function() {
-    $('#boxinfo').html('Couper un mur<br/><span style=\"font-size:0.7em\">Attention : Couper le mur d\'une pièce peut annuler sa configuration</span>');
+    $('#boxinfo').html(node_mode_boxinfo);
     fonc_button('node_mode');
 });
 
 $('#text_mode').click(function() {
-    $('#boxinfo').html('Ajouter du texte<br/><span style=\"font-size:0.7em\">Amenez le curseur à l\'endroit voulu, puis tapez votre texte.</span>');
+    $('#boxinfo').html(text_mode_boxinfo);
     fonc_button('text_mode');
 });
 
 $('#grid_mode').click(function() {
     if (grid_snap == 'on') {
         grid_snap = 'off';
-        $('#boxinfo').html('Tắt chế độ Grid');
+        $('#boxinfo').html(grid_mode_on_boxinfo);
         $('#grid_mode').removeClass('btn-success');
         $('#grid_mode').addClass('btn-warning');
         $('#grid_mode').html('GRID OFF');
         $('#boxgrid').css('opacity', '0.5');
     } else {
         grid_snap = 'on';
-        $('#boxinfo').html('Grille d\'aide on');
+        $('#boxinfo').html(grid_mode_off_boxinfo);
         $('#grid_mode').removeClass('btn-warning');
         $('#grid_mode').addClass('btn-success');
         $('#grid_mode').html('GRID ON <i class="fa fa-th" aria-hidden="true"></i>');

@@ -253,7 +253,7 @@ var editor = {
       return true;
     }
     else {
-      $('#boxinfo').html('Les murs contenant des portes ou des fenêtres ne peuvent être une séparation !');
+      $('#boxinfo').html('Walls containing doors or windows can not be a separation!');
       return false;
     }
   },
